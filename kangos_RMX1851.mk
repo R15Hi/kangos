@@ -17,16 +17,21 @@
 # Specify arch for gapps
 TARGET_GAPPS_ARCH=arm64
 
+# Kangos Maintainer
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.kangos.maintainer=Rishi Roy \
+  ro.kangos.cpu=SDM710
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common LOS stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/kangos/config/common.mk)
 
 $(call inherit-product, device/realme/RMX1851/device.mk)
 
-PRODUCT_NAME := aosp_RMX1851
+PRODUCT_NAME := kangos_RMX1851
 PRODUCT_DEVICE := RMX1851
 PRODUCT_MANUFACTURER := Realme
 PRODUCT_BRAND := realme
